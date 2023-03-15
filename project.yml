@@ -17,13 +17,14 @@
       service:
        name: httpd
        state: started
-
-    - name: hit localhost
-      uri:
-       url: https://localhost
-       return_content: true
-      register: this
  
-    - name: print content
+    - name: print something
+      shell: "echo {{ item }}"
+      loop:
+       - "one"
+       - "two"
+      register: echo
+
+    - name: print echo register
       debug:
-       var: this.content
+       var: echo.msg
