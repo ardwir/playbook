@@ -1,9 +1,8 @@
 ---
 - name: install and start apache
   hosts: all
-  vars_file: vars/vars.yml
+  # vars_file: vars/vars.yml
   # become: yes
-
   tasks:
     - name: httpd package is present
       yum:
