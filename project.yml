@@ -17,3 +17,13 @@
       service:
        name: httpd
        state: started
+
+    - name: hit localhost
+      uri:
+       url: https://localhost
+       return_content: true
+      register: this
+ 
+    - name: print content
+      debug:
+       var: this.content
